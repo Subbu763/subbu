@@ -1,0 +1,18 @@
+class HotelReservationSystem:
+def __init__(self):
+self.rooms = {}
+self.reservations = {}
+def add_room(self, room_number, capacity, price_per_night):
+self.rooms[room_number] = {'capacity': capacity, 'price_per_night': price_per_night}
+def display_available_rooms(self):
+available_rooms = [room for room in self.rooms if room not in self.reservations]
+return available_rooms
+def make_reservation(self, guest_name, room_number, nights):
+if room_number in self.rooms and room_number not in self.reservations:
+total_price = self.rooms[room_number]['price_per_night'] * nights
+self.reservations[room_number] = {'guest_name': guest_name, 'nights': nights, 'total_price':
+total_price}
+return f"Reservation for {guest_name} in room {room_number} for {nights} nights confirmed.
+Total price: {total_price}."
+else:
+return "Room not available for reservation."
